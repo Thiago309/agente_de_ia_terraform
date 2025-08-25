@@ -1,0 +1,16 @@
+#=================================================
+# ARQUIVO: docker-compose.yml
+#=================================================
+# Este arquivo orquestra o serviço. 
+
+services:
+  dsa_ai_agent_app:
+    build: .
+    container_name: terraform-dsa-ai-agent-container
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      - ./app:/usr/src/app
+    restart: unless-stopped
